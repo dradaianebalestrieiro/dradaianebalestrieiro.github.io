@@ -1,1 +1,366 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dra. Daianne Balestrieiro — Estética Avançada</title>
+    <style>
+      :root {
+        --primary: #fc5696;
+        --primary-dark: #e94d87;
+        --secondary: #ffb5de;
+        --tertiary: #fecbea;
+        --text: #111827;
+        --text-soft: #4b5563;
+        --white: #ffffff;
+        --bg-rose: #fff8fc;
+        --border: #f4d4e6;
+        --shadow: 0 20px 50px rgba(252, 86, 150, 0.15);
+        --radius-lg: 24px;
+        --radius-xl: 32px;
+        --container: 1200px;
+        --section-py-mobile: 72px;
+        --section-py-md: 96px;
+        --section-py-lg: 128px;
+      }
 
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; overflow-x: hidden; }
+      body {
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: var(--text);
+        background: var(--white);
+      }
+      h1, h2, h3, h4 { font-family: "Playfair Display", Georgia, serif; margin: 0; }
+      p { margin: 0; color: var(--text-soft); line-height: 1.6; }
+      a { color: inherit; text-decoration: none; }
+
+      .container { width: min(100% - 2rem, var(--container)); margin: 0 auto; }
+      .section { padding: var(--section-py-mobile) 0; position: relative; }
+      .badge {
+        display: inline-block; padding: 8px 14px; border-radius: 999px;
+        background: rgba(252, 86, 150, 0.08); border: 1px solid rgba(252, 86, 150, 0.2);
+        color: var(--primary); font-size: 14px; font-weight: 600;
+      }
+      .title-gradient {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+
+      .site-header {
+        position: fixed; inset: 0 0 auto 0; z-index: 100;
+        transition: background .35s ease, box-shadow .35s ease, padding .35s ease;
+        padding: 20px 0;
+      }
+      .site-header.scrolled { background: rgba(255,255,255,.94); backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+      .header-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .brand { font-size: 30px; font-weight: 700; }
+      .nav { display: none; align-items: center; gap: 28px; }
+      .nav a { font-weight: 500; color: #374151; }
+      .nav a:hover { color: var(--primary); }
+      .btn-ig {
+        display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px;
+        border-radius: 999px; background: linear-gradient(90deg, var(--primary), var(--secondary));
+        color: var(--white); font-weight: 600; border: 0; cursor: pointer;
+      }
+      .menu-btn { background: transparent; border: 0; font-size: 28px; color: var(--primary); }
+      .mobile-menu { display: none; background: #fff; border-top: 1px solid var(--border); padding: 14px 0; }
+      .mobile-menu.open { display: block; }
+      .mobile-menu a { display: block; padding: 10px 0; font-weight: 500; color: #374151; }
+
+      .hero {
+        min-height: 100vh; display: flex; align-items: center;
+        background:
+          linear-gradient(90deg, rgba(0,0,0,.7), rgba(0,0,0,.5), rgba(0,0,0,.15)),
+          url('https://images.unsplash.com/photo-1710839465443-8671ced76e09?auto=format&fit=crop&w=1920&q=80') center/cover;
+        color: #fff;
+      }
+      .hero .container { padding-top: 120px; padding-bottom: 60px; }
+      .hero h1 { font-size: clamp(40px, 8vw, 78px); line-height: 1.05; margin: 14px 0 20px; }
+      .hero p.lead { font-size: clamp(20px, 3vw, 34px); max-width: 880px; margin-bottom: 16px; color: rgba(255,255,255,.95); }
+      .hero p.sub { font-size: clamp(17px, 2.5vw, 24px); max-width: 760px; margin-bottom: 36px; color: rgba(255,255,255,.9); }
+      .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+      .btn-primary, .btn-outline {
+        border-radius: 999px; padding: 16px 28px; font-weight: 700; font-size: 18px; border: 0; cursor: pointer;
+      }
+      .btn-primary { background: linear-gradient(90deg, var(--primary), var(--secondary)); color: #fff; box-shadow: var(--shadow); }
+      .btn-outline { background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.45); color: #fff; }
+
+      .grid-2 { display: grid; gap: 42px; }
+      .about-photo-wrap { max-width: 430px; margin: 0 auto; }
+      .about-photo { width: 100%; border-radius: var(--radius-xl); box-shadow: var(--shadow); display: block; aspect-ratio: 9/16; object-fit: cover; }
+      .about-cards { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: 28px; }
+      .mini-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 18px; }
+
+      .cards { display: grid; gap: 18px; }
+      .service-card, .result-card, .test-card, .faq-item {
+        background: #fff; border: 1px solid #f3f4f6; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,.05);
+      }
+      .service-card { padding: 24px; }
+      .service-card.featured { border: 2px solid rgba(252,86,150,.35); }
+      .service-card h3 { margin-bottom: 12px; font-size: 30px; }
+      .service-card ul { margin: 0; padding-left: 16px; color: #374151; }
+      .service-card li { margin-bottom: 6px; }
+
+      .result-card { overflow: hidden; }
+      .result-media { aspect-ratio: 4/5; display: grid; place-items: center; background: linear-gradient(130deg, rgba(254,203,234,.45), rgba(255,181,222,.35)); }
+      .result-body { padding: 18px; }
+
+      .test-card { padding: 24px; position: relative; }
+      .stars { color: var(--primary); margin-bottom: 8px; letter-spacing: 2px; }
+
+      .faq-wrap { display: grid; gap: 12px; max-width: 920px; margin: 0 auto; }
+      .faq-btn {
+        width: 100%; border: 0; background: transparent; text-align: left;
+        padding: 22px; font-size: 18px; font-weight: 700; color: #111827; cursor: pointer;
+        display: flex; justify-content: space-between; gap: 20px;
+      }
+      .faq-content { max-height: 0; overflow: hidden; transition: max-height .3s ease; padding: 0 22px; }
+      .faq-item.open .faq-content { max-height: 320px; padding-bottom: 20px; }
+
+      .location-box {
+        background: linear-gradient(130deg, rgba(254,203,234,.45), rgba(255,181,222,.35));
+        border-radius: var(--radius-xl); min-height: 320px; display: grid; place-items: center;
+        text-align: center; padding: 24px;
+      }
+
+      .cta-final {
+        color: #fff;
+        background: linear-gradient(130deg, var(--primary), var(--secondary), var(--tertiary));
+      }
+      .cta-final h2 { font-size: clamp(42px, 7vw, 80px); margin-bottom: 18px; }
+      .cta-final p { color: rgba(255,255,255,.92); font-size: clamp(19px, 2.8vw, 30px); max-width: 900px; margin: 0 auto 28px; }
+
+      footer { padding: 70px 0; background: #fcfcfd; }
+      .footer-grid { display: grid; gap: 20px; }
+
+      .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+
+      @media (min-width: 768px) {
+        .section { padding: var(--section-py-md) 0; }
+        .cards.services { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .cards.results, .cards.testimonials { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .footer-grid { grid-template-columns: repeat(3, 1fr); }
+        .nav { display: flex; }
+        .menu-btn, .mobile-menu { display: none !important; }
+      }
+
+      @media (min-width: 1024px) {
+        .section { padding: var(--section-py-lg) 0; }
+        .grid-2 { grid-template-columns: 1fr 1fr; align-items: center; }
+        .cards.services { grid-template-columns: repeat(3, minmax(0,1fr)); }
+        .cards.services .featured { grid-column: span 2; }
+        .cards.results { grid-template-columns: repeat(3, minmax(0,1fr)); }
+        .cards.testimonials { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="container header-row">
+        <a href="#top" class="brand title-gradient">Dra. Daianne Balestrieiro</a>
+        <nav class="nav" aria-label="Principal">
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#resultados">Resultados</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn-ig" href="https://www.instagram.com/daianne_balestrieiro_estetica/" target="_blank" rel="noopener">Agendar</a>
+        </nav>
+        <button class="menu-btn" id="menu-btn" aria-label="Abrir menu">☰</button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="container">
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#resultados">Resultados</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container">
+          <span class="badge">Estética Avançada • Jaboticabal, SP</span>
+          <h1>Dra. Daianne Balestrieiro</h1>
+          <p class="lead">“Eu não vendo Botox. Eu vendo o gerenciamento do seu envelhecimento para que você se sinta confiante em todas as fases da sua vida.”</p>
+          <p class="sub">Estética facial, corporal e íntima com técnica avançada e atendimento 100% personalizado em Jaboticabal, SP.</p>
+          <div class="hero-ctas">
+            <a class="btn-primary" href="https://www.instagram.com/daianne_balestrieiro_estetica/" target="_blank" rel="noopener">Agendar pelo Instagram</a>
+            <a class="btn-outline" href="#servicos">Ver Serviços</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="section reveal">
+        <div class="container grid-2">
+          <div class="about-photo-wrap">
+            <img class="about-photo" src="https://images.pexels.com/photos/19963168/pexels-photo-19963168.jpeg" alt="Dra. Daianne Balestrieiro" />
+          </div>
+          <div>
+            <span class="badge">Sobre Mim</span>
+            <h2 style="font-size: clamp(36px, 5vw, 66px); margin: 14px 0 18px;">Excelência em <span class="title-gradient">Estética Avançada</span></h2>
+            <p>Dra. Daianne Balestrieiro é <strong>pós-graduada em Estética Avançada (2023)</strong> e atua com tratamentos personalizados que vão do básico ao avançado.</p>
+            <p style="margin-top:10px;">Especialista em harmonização facial, estética corporal e estética íntima feminina, ela acredita que cada cliente merece um olhar único.</p>
+            <div class="about-cards">
+              <div class="mini-card"><strong>Pós-graduada</strong><br />Estética Avançada (2023)</div>
+              <div class="mini-card"><strong>Atendimento Personalizado</strong><br />Cada cliente merece um olhar único</div>
+              <div class="mini-card"><strong>Técnicas Avançadas</strong><br />Do básico ao mais moderno</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos" class="section" style="background: var(--bg-rose);">
+        <div class="container reveal">
+          <div style="max-width:780px; margin: 0 auto 34px; text-align:center;">
+            <span class="badge">Serviços</span>
+            <h2 style="font-size: clamp(34px, 5vw, 62px); margin: 14px 0;">Tratamentos <span class="title-gradient">Personalizados</span></h2>
+            <p>Do básico ao avançado, cada procedimento é pensado para realçar sua beleza natural e fortalecer sua autoestima.</p>
+          </div>
+          <div class="cards services">
+            <article class="service-card featured">
+              <h3 class="title-gradient">Harmonização Facial</h3>
+              <ul>
+                <li>Preenchimento de lábios, mandíbula e mento</li>
+                <li>Preenchimento de bigode chinês, malar e olheiras</li>
+                <li>Toxina botulínica facial e pescoço</li>
+                <li>Toxina para hiperidrose em mãos e axilas</li>
+                <li>Perfiloplastia</li>
+              </ul>
+            </article>
+            <article class="service-card"><h3>Bioestimulador de Colágeno</h3><ul><li>Bioestimulação facial</li><li>Corporal: abdômen e interno de coxas</li><li>Glúteo e braços</li></ul></article>
+            <article class="service-card"><h3>Estética Corporal</h3><ul><li>Enzimas para gordura localizada</li><li>Tratamento para flacidez</li><li>Harmonização de quadríceps</li><li>Drenagem pós-operatória e estética</li></ul></article>
+            <article class="service-card"><h3>Estética Facial Clínica</h3><ul><li>Limpeza de pele com vapor de ozônio</li></ul></article>
+            <article class="service-card"><h3>Estética Íntima Feminina</h3><p>Procedimentos específicos apresentados durante a consulta, com sigilo e cuidado.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultados" class="section reveal">
+        <div class="container">
+          <div style="max-width:760px; margin: 0 auto 28px; text-align:center;">
+            <span class="badge">Resultados</span>
+            <h2 style="font-size: clamp(34px, 5vw, 62px); margin: 14px 0;">Transformações <span class="title-gradient">Reais</span></h2>
+          </div>
+          <div class="cards results">
+            <article class="result-card"><div class="result-media">Foto 1</div><div class="result-body"><strong>Preenchimento de olheiras</strong><p>Rejuvenescimento do olhar</p></div></article>
+            <article class="result-card"><div class="result-media">Foto 2</div><div class="result-body"><strong>Mandíbula, mento e papada</strong><p>Harmonização e contorno facial</p></div></article>
+            <article class="result-card"><div class="result-media">Foto 3</div><div class="result-body"><strong>Perfiloplastia</strong><p>Perfil equilibrado e natural</p></div></article>
+            <article class="result-card"><div class="result-media">Foto 4</div><div class="result-body"><strong>Preenchimento labial</strong><p>Volume e definição</p></div></article>
+            <article class="result-card"><div class="result-media">Foto 5</div><div class="result-body"><strong>Rugas do nariz (botox)</strong><p>Suavização de linhas de expressão</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--bg-rose);">
+        <div class="container reveal">
+          <div style="max-width:760px; margin: 0 auto 28px; text-align:center;">
+            <span class="badge">Depoimentos</span>
+            <h2 style="font-size: clamp(34px, 5vw, 62px); margin: 14px 0;">O Que Dizem <span class="title-gradient">Nossas Clientes</span></h2>
+          </div>
+          <div class="cards testimonials">
+            <article class="test-card"><div class="stars">★★★★★</div><p>“A Dra. Daianne transformou minha autoestima! Resultado super natural e atendimento impecável.”</p><p style="margin-top:10px;"><strong>Juliana Santos</strong> • Harmonização Facial</p></article>
+            <article class="test-card"><div class="stars">★★★★★</div><p>“Já fiz botox em outros lugares, mas aqui foi diferente. Ficou natural, sem aspecto congelado.”</p><p style="margin-top:10px;"><strong>Mariana Costa</strong> • Toxina Botulínica</p></article>
+            <article class="test-card"><div class="stars">★★★★★</div><p>“Com o bioestimulador minha pele ficou mais firme e com viço. Valeu cada centavo!”</p><p style="margin-top:10px;"><strong>Camila Rodrigues</strong> • Bioestimulador</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section reveal">
+        <div class="container">
+          <div style="max-width:760px; margin: 0 auto 28px; text-align:center;">
+            <span class="badge">FAQ</span>
+            <h2 style="font-size: clamp(34px, 5vw, 62px); margin: 14px 0;">Perguntas <span class="title-gradient">Frequentes</span></h2>
+          </div>
+          <div class="faq-wrap" id="faq-wrap">
+            <article class="faq-item open"><button class="faq-btn">Os procedimentos doem? <span>⌄</span></button><div class="faq-content"><p>A maioria usa anestésico tópico ou técnicas de baixa dor. O desconforto costuma ser mínimo e passageiro.</p></div></article>
+            <article class="faq-item"><button class="faq-btn">Quanto tempo dura o botox? <span>⌄</span></button><div class="faq-content"><p>Em média de 4 a 6 meses, variando por metabolismo, região tratada e cuidados pós-procedimento.</p></div></article>
+            <article class="faq-item"><button class="faq-btn">Posso fazer mais de um procedimento no mesmo dia? <span>⌄</span></button><div class="faq-content"><p>Em alguns casos sim. A combinação ideal depende da avaliação clínica e segurança do protocolo.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--bg-rose);">
+        <div class="container reveal">
+          <div style="max-width:760px; margin:0 auto 26px; text-align:center;">
+            <span class="badge">Localização</span>
+            <h2 style="font-size: clamp(34px, 5vw, 62px); margin: 14px 0;">Venha Nos <span class="title-gradient">Visitar</span></h2>
+          </div>
+          <div class="location-box">
+            <h3>R. Dra. Leonor Sanches Louzada e Santos</h3>
+            <p>Conj. Hab. Hugo Lacorte Vitalle I, Jaboticabal - SP</p>
+            <p>CEP 14875-408</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-final reveal" style="text-align:center;">
+        <div class="container">
+          <h2>Pronta para cuidar de você?</h2>
+          <p>Agende sua consulta e dê o primeiro passo para se sentir confiante em todas as fases da sua vida.</p>
+          <a class="btn-primary" style="background:#fff; color:var(--primary);" href="https://www.instagram.com/daianne_balestrieiro_estetica/" target="_blank" rel="noopener">Agendar pelo Instagram</a>
+          <p style="margin-top:22px; color:rgba(255,255,255,.85);">Atendimento por agendamento • Segunda a Sexta, 9h às 17h</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3 class="title-gradient" style="font-size:32px;">Daianne Balestrieiro</h3>
+          <p>Estética & Saúde</p>
+        </div>
+        <div>
+          <h4 style="font-size:22px; margin-bottom:8px;">Links Rápidos</h4>
+          <p><a href="#sobre">Sobre</a> • <a href="#servicos">Serviços</a> • <a href="#faq">FAQ</a></p>
+        </div>
+        <div>
+          <h4 style="font-size:22px; margin-bottom:8px;">Horários</h4>
+          <p>Segunda a Sexta • 9h às 17h</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.getElementById('site-header');
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      function handleHeaderScroll() {
+        if (window.scrollY > 24) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      }
+
+      menuBtn?.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+
+      document.querySelectorAll('.mobile-menu a').forEach((link) => {
+        link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+      });
+
+      faqItems.forEach((item) => {
+        const button = item.querySelector('.faq-btn');
+        button.addEventListener('click', () => {
+          const open = item.classList.contains('open');
+          faqItems.forEach((i) => i.classList.remove('open'));
+          if (!open) item.classList.add('open');
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+      handleHeaderScroll();
+    </script>
+  </body>
+</html>
