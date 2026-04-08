@@ -6,6 +6,8 @@
 <title>Dra. Daiane Balestrieiro – Estética Avançada em Jaboticabal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+    <link rel="icon" type="image/png" href="image/videoframe_4000.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* RESET */
@@ -162,14 +164,14 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 
 /* DEPOIMENTOS CARROSSEL */
 .depoimentos{background:linear-gradient(to bottom,#fff,#f9fafb,#fff);}
-.carrossel{position:relative;max-width:80rem;margin:0 auto;}
-.car-viewport{overflow:hidden;width:100%;}
+.carrossel{position:relative;max-width:80rem;margin:0 auto; ;}
+.car-viewport{overflow:hidden;width:100%; padding: 2rem 1rem; margin: -2rem -1rem; }
 .car-track{display:flex;transition:transform 500ms cubic-bezier(.4,0,.2,1);will-change:transform;}
-.car-slide{flex:0 0 100%;padding:.5rem .5rem 2rem;box-sizing:border-box;display:flex;}
+.car-slide{flex:0 0 100%;padding:.5rem .5rem 2rem;box-sizing:border-box;display:flex; overflow: visible;}
 @media(min-width:768px){.car-slide{flex:0 0 50%;}}
-.depo{position:relative;background:#fff;border-radius:1.5rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.07);border:1px solid #F3F4F6;transition:all 500ms;flex:1;}
-.depo:hover{transform:translateY(-8px);box-shadow:0 25px 50px -12px rgba(0,0,0,.15);}
-.depo-aspas{position:absolute;top:-1rem;left:-1rem;width:3rem;height:3rem;background:var(--grad-br);border-radius:9999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);opacity:.9;}
+.depo{position:relative;background:#fff;border-radius:1.5rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.07);border:1px solid #F3F4F6;transition:all 500ms;flex:1; z-index: 1;}
+.depo:hover{transform:translateY(-8px);box-shadow:0 25px 50px -12px rgba(0,0,0,.15); z-index: 10;}
+.depo-aspas{position:absolute;top:-1rem;left:-1rem;width:3rem;height:3rem;background:var(--grad-br);border-radius:9999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);opacity:.9; z-index: 20;}
 .depo-stars{color:#FC5696;font-size:1rem;margin-bottom:1rem;letter-spacing:.1em;}
 .depo-txt{font-size:.875rem;color:#374151;line-height:1.65;margin-bottom:1.5rem;}
 .depo-ft{border-top:1px solid #F3F4F6;padding-top:1rem;}
@@ -180,13 +182,13 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .depo:hover .depo-hov{background:linear-gradient(to bottom right,rgba(252,86,150,.05),rgba(255,181,222,.05));}
 .car-setas{display:flex;justify-content:center;gap:1rem;margin-top:2rem;}
 .car-seta{width:3rem;height:3rem;border-radius:9999px;background:#fff;border:2px solid rgba(252,86,150,.3);color:#FC5696;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 300ms;box-shadow:0 4px 10px rgba(0,0,0,.08);}
-.car-seta:hover{background:var(--grad-r);border-color:transparent;color:#fff;transform:scale(1.1);box-shadow:0 8px 20px rgba(252,86,150,.35);}
+.car-seta:hover{background:#FC5696 ;border-color:transparent;color:#fff;transform:scale(1.1);box-shadow:0 8px 20px rgba(252,86,150,.35);}
 .car-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem;}
 .car-dot{width:.5rem;height:.5rem;border-radius:9999px;background:rgba(252,86,150,.25);border:none;cursor:pointer;transition:all 300ms;padding:0;}
 .car-dot.ativo{background:#FC5696;width:1.5rem;}
 
 /* FAQ */
-.faq{background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);}
+.faq{background:linear-gradient(to bottom,#000000,rgba(146, 105, 130, 0.05),#463535); }
 .faq-lista{max-width:56rem;margin:0 auto;display:flex;flex-direction:column;gap:1rem;}
 .faq-item{background:#fff;border-radius:1rem;border:1px solid #F3F4F6;box-shadow:0 10px 15px -3px rgba(0,0,0,.07);overflow:hidden;transition:border-color 300ms;}
 .faq-item:hover{border-color:rgba(255,181,222,.5);}
@@ -202,8 +204,8 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .faq-r{max-height:0;overflow:hidden;transition:max-height 400ms ease,padding 300ms;}
 .faq-item.aberto .faq-r{max-height:400px;padding:0 1.5rem 1.5rem;}
 .faq-r p{font-size:.95rem;color:#4B5563;line-height:1.7;padding-left:3.5rem;}
-.faq-cta{text-align:center;margin-top:4rem;}
-.faq-cta p{color:#4B5563;margin-bottom:1.5rem;font-size:1.1rem;}
+.faq-cta{text-align:center;margin-top:4rem; background: #000000; padding: 1rem; }
+.faq-cta p{color:#ffffff;margin-bottom:1.5rem;font-size:1.1rem;}
 
 /* LOCALIZAÇÃO */
 .localizacao{background:linear-gradient(to bottom,#fff,#f9fafb,#fff);}
@@ -310,7 +312,7 @@ Agendar pelo Instagram</button></a>
 </section>
 
 <!-- SOBRE -->
-<section class="scroll-animate" id="sobre" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);">
+<section class="scroll-animate" id="sobre" style="position:relative;padding:4rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);">
 <div class="blob-bg">
 <div class="blob" style="top:5rem;right:25%;width:16rem;height:16rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.3;"></div>
 <div class="blob" style="bottom:5rem;left:25%;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.3;"></div>
@@ -347,7 +349,7 @@ Agendar pelo Instagram</button></a>
 </section>
 
 <!-- SERVIÇOS -->
-<section class="scroll-animate" id="servicos" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
+<section class="scroll-animate" id="servicos" style="position:relative;padding:4rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
 <div class="blob-bg">
 <div class="blob" style="top:25%;left:2.5rem;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.4;"></div>
 <div class="blob" style="bottom:25%;right:2.5rem;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.4;"></div>
@@ -372,7 +374,7 @@ Agendar pelo Instagram</button></a>
 </section>
 
 <!-- RESULTADOS -->
-<section class="scroll-animate" id="resultados" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);">
+<section class="scroll-animate" id="resultados" style="position:relative;padding:4rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);">
 <div class="blob-bg">
 <div class="blob" style="top:5rem;left:25%;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.3;"></div>
 <div class="blob" style="bottom:5rem;right:25%;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.3;"></div>
@@ -399,7 +401,7 @@ Resultados reais de pacientes. Fotos com autorização.
 </section>
 
 <!-- DEPOIMENTOS CARROSSEL -->
-<section class="scroll-animate" id="depoimentos" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
+<section class="scroll-animate" id="depoimentos" style="position:relative;padding:4rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
 <div class="blob-bg">
 <div class="blob" style="top:33%;right:5rem;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.3),transparent);opacity:.3;"></div>
 <div class="blob" style="bottom:33%;left:5rem;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(254,203,234,.3),transparent);opacity:.3;"></div>
@@ -429,7 +431,7 @@ Resultados reais de pacientes. Fotos com autorização.
 </section>
 
 <!-- FAQ -->
-<section class="scroll-animate" id="faq" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);">
+<section class="scroll-animate" id="faq" style="position:relative;padding:3rem 0;overflow:hidden;background:linear-gradient(to bottom,#e0dede,rgba(254,203,234,.05),#fff);">
 <div class="blob-bg">
 <div class="blob" style="top:5rem;left:33%;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.3;"></div>
 <div class="blob" style="bottom:5rem;right:33%;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.3;"></div>
@@ -448,13 +450,13 @@ Resultados reais de pacientes. Fotos com autorização.
 <div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>O que é hiperidrose e como é feito o tratamento?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>Hiperidrose é o suor excessivo em axilas, mãos e pés. A toxina botulínica bloqueia temporariamente os sinais nervosos que estimulam as glândulas sudoríparas, reduzindo drasticamente a transpiração com resultado que dura em média 6 meses.</p></div></div>
 <div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Posso fazer mais de um procedimento no mesmo dia?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>Em alguns casos sim. A combinação é avaliada durante a consulta, sempre priorizando segurança, tempo de recuperação e os melhores resultados possíveis para cada pessoa.</p></div></div>
 </div>
+</div>
 <div class="faq-cta"><p>Ainda tem dúvidas? Vamos conversar!</p>
 <a href="https://www.instagram.com/daianne_balestriiero_estetica/" target="_blank" rel="noopener noreferrer"><button class="btn-rosa">Enviar Mensagem pelo Instagram</button></a></div>
-</div>
 </section>
 
 <!-- LOCALIZAÇÃO -->
-<section class="scroll-animate" id="localizacao" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
+<section class="scroll-animate" id="localizacao" style="position:relative;padding:4rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
 <div class="blob-bg">
 <div class="blob" style="top:25%;right:2.5rem;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.3;"></div>
 <div class="blob" style="bottom:25%;left:2.5rem;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.3;"></div>
@@ -565,13 +567,12 @@ function ir(id) {
   document.querySelectorAll('.scroll-animate').forEach(function(el) { obs.observe(el); });
 })();
 
-// Carrossel
+// Carrossel (Versão Manual)
 (function() {
   var track = document.getElementById('car-track');
   var dotsWrap = document.getElementById('car-dots');
   var TOTAL = 10;
   var cur = 0;
-  var autoTimer;
 
   function pv() { return window.innerWidth >= 768 ? 2 : 1; }
   function numPages() { return Math.ceil(TOTAL / pv()); }
@@ -582,7 +583,9 @@ function ir(id) {
       var d = document.createElement('button');
       d.className = 'car-dot' + (i === 0 ? ' ativo' : '');
       d.setAttribute('aria-label', 'Página ' + (i + 1));
-      (function(idx) { d.onclick = function() { stopAuto(); goTo(idx); startAuto(); }; })(i);
+      (function(idx) { 
+        d.onclick = function() { goTo(idx); }; 
+      })(i);
       dotsWrap.appendChild(d);
     }
   }
@@ -599,25 +602,25 @@ function ir(id) {
     });
   }
 
-  function startAuto() { autoTimer = setInterval(function() { goTo(cur + 1); }, 5000); }
-  function stopAuto() { clearInterval(autoTimer); }
-
-  document.getElementById('car-prev').onclick = function() { stopAuto(); goTo(cur - 1); startAuto(); };
-  document.getElementById('car-next').onclick = function() { stopAuto(); goTo(cur + 1); startAuto(); };
+  // Controles de Setas
+  document.getElementById('car-prev').onclick = function() { goTo(cur - 1); };
+  document.getElementById('car-next').onclick = function() { goTo(cur + 1); };
 
   window.addEventListener('resize', function() { buildDots(); goTo(0); });
 
-  // Swipe touch
+  // Swipe touch (Apenas para deslizar com o dedo)
   var startX = 0;
-  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  track.addEventListener('touchstart', function(e) { 
+    startX = e.touches[0].clientX; 
+  }, { passive: true });
+
   track.addEventListener('touchend', function(e) {
     var diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) goTo(diff > 0 ? cur + 1 : cur - 1);
-    startAuto();
   });
 
   buildDots();
-  startAuto();
+  // startAuto() removido daqui
 })();
 
 // FAQ accordion
