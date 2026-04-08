@@ -1,1 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="scroll-behavior:smooth;">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dra. Daianne Balestrieiro – Estética Avançada em Jaboticabal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* RESET */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}
+body{font-family:'Jost',sans-serif;color:#374151;overflow-x:hidden;background:#fff;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;background:none;border:none;}
+svg{display:block;}
+ul{list-style:none;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
 
+/* VARIÁVEIS */
+:root{
+  --rosa:#FC5696;
+  --rosa-claro:#FFB5DE;
+  --rosa-palido:#FECBEA;
+  --grad-r:linear-gradient(to right,#FC5696,#FFB5DE);
+  --grad-br:linear-gradient(to bottom right,#FC5696,#FFB5DE);
+  --ft:'Cormorant Garamond',Georgia,serif;
+  --fs:'Lora',Georgia,serif;
+}
+
+/* UTILITÁRIOS */
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 1rem;}
+@media(min-width:640px){.container{padding:0 1.5rem;}}
+@media(min-width:1024px){.container{padding:0 2rem;}}
+.secao-topo{text-align:center;max-width:48rem;margin:0 auto 5rem;}
+.badge{display:inline-block;padding:.5rem 1rem;background:linear-gradient(to right,rgba(252,86,150,.1),rgba(255,181,222,.1));border:1px solid rgba(252,86,150,.2);border-radius:9999px;color:#FC5696;font-size:.875rem;font-weight:600;margin-bottom:1.5rem;}
+.h2{font-family:var(--ft);font-size:clamp(2.25rem,5vw,3.75rem);font-weight:700;color:#111827;line-height:1.15;margin-bottom:1.5rem;}
+.h2 .grad{display:block;background:var(--grad-r);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.secao-p{font-size:1.1rem;color:#4B5563;line-height:1.625;}
+.blob-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.blob{position:absolute;border-radius:9999px;filter:blur(64px);}
+.btn-rosa{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;background:var(--grad-r);color:#fff;font-weight:600;font-size:1rem;border-radius:9999px;border:none;transition:all 300ms;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.btn-rosa:hover{box-shadow:0 20px 40px rgba(252,86,150,.4);transform:scale(1.05);}
+
+/* SCROLL ANIMATE - fiel ao original */
+.scroll-animate{transition:opacity .8s ease-out,transform .8s ease-out;opacity:0;transform:translateY(20px);}
+.scroll-animate.animate-fade-in{opacity:1;transform:translateY(0);}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:50;padding:1.5rem 0;transition:all 500ms;background:transparent;}
+.header.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 1px 20px rgba(0,0,0,.08);padding:.875rem 0;}
+.header__inner{display:flex;align-items:center;justify-content:space-between;}
+.header__logo h1{font-family:var(--ft);font-size:clamp(1.35rem,2.5vw,1.875rem);font-weight:700;background:var(--grad-r);-webkit-background-clip:text;background-clip:text;color:transparent;cursor:pointer;}
+.header__nav{display:none;align-items:center;gap:2rem;}
+.nav-link{color:#374151;font-weight:500;font-size:.95rem;transition:color 300ms;}
+.nav-link:hover{color:#FC5696;}
+.btn-nav{display:flex;align-items:center;gap:.5rem;padding:.625rem 1.25rem;background:var(--grad-r);color:#fff;border-radius:9999px;font-weight:500;font-size:.9rem;transition:all 300ms;}
+.btn-nav:hover{box-shadow:0 8px 20px rgba(252,86,150,.35);transform:scale(1.05);}
+.btn-mobile{display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:var(--grad-r);color:#fff;border-radius:9999px;font-weight:500;font-size:.875rem;}
+@media(min-width:768px){.header__nav{display:flex;}.btn-mobile{display:none;}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero__bg{position:absolute;inset:0;z-index:0;}
+.hero__bg img{width:100%;height:100%;object-fit:cover;}
+.hero__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom right,rgba(252,86,150,.75),rgba(255,181,222,.6),rgba(254,203,234,.5));}
+.hero__overlay2{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.1),transparent,rgba(255,255,255,.1));}
+.hero__dots{position:absolute;inset:0;z-index:3;background-image:radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;}
+.hero__wrap{position:relative;z-index:10;width:100%;max-width:1280px;margin:0 auto;padding:8rem 1rem 6rem;}
+@media(min-width:640px){.hero__wrap{padding:8rem 1.5rem 6rem;}}
+@media(min-width:1024px){.hero__wrap{padding:8rem 2rem 6rem;}}
+.hero__content{max-width:56rem;}
+.hero__badge-wrap{display:inline-block;margin-bottom:1.5rem;}
+.hero__badge{padding:.5rem 1rem;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);border-radius:9999px;color:#fff;font-size:.875rem;font-weight:500;}
+.hero__titulo{font-family:var(--ft);font-size:clamp(3rem,7vw,4.5rem);font-weight:700;color:#fff;margin-bottom:2rem;line-height:1.1;}
+.hero__frase{font-family:var(--fs);font-style:italic;font-size:clamp(1.15rem,2.5vw,1.6rem);font-weight:400;color:rgba(255,255,255,.97);line-height:1.75;margin-bottom:1.5rem;max-width:48rem;}
+.hero__frase .hl{position:relative;font-weight:600;}
+.hero__frase .hl::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:rgba(255,255,255,.65);border-radius:2px;}
+.hero__sub{font-size:clamp(1rem,1.8vw,1.15rem);color:rgba(255,255,255,.9);margin-bottom:3rem;max-width:42rem;line-height:1.625;}
+.hero__btns{display:flex;flex-direction:column;gap:1rem;margin-bottom:4rem;}
+.btn-hp{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;width:100%;background:var(--grad-r);color:#fff;font-weight:700;font-size:1.05rem;padding:1.1rem 2rem;border-radius:9999px;border:none;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);transition:all 300ms;cursor:pointer;font-family:inherit;}
+.btn-hp:hover{box-shadow:0 20px 40px rgba(252,86,150,.5);transform:scale(1.05);}
+.btn-hs{display:inline-flex;align-items:center;justify-content:center;width:100%;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:2px solid rgba(255,255,255,.3);color:#fff;font-weight:600;font-size:1.05rem;padding:1.1rem 2rem;border-radius:9999px;transition:all 300ms;cursor:pointer;font-family:inherit;}
+.btn-hs:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5);}
+.hero__scroll{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.8);font-size:.875rem;font-weight:500;border:none;background:none;cursor:pointer;font-family:inherit;transition:color 300ms;animation:heroB 1.5s ease infinite;}
+.hero__scroll:hover{color:#fff;}
+@keyframes heroB{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+@media(min-width:640px){.hero__btns{flex-direction:row;}.btn-hp,.btn-hs{width:auto;}}
+
+/* SOBRE */
+.sobre{background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);}
+.sobre__grid{display:grid;gap:4rem;align-items:center;}
+@media(min-width:1024px){.sobre__grid{grid-template-columns:1fr 1fr;gap:5rem;}}
+.sobre__foto{position:relative;max-width:28rem;margin:0 auto;}
+@media(min-width:1024px){.sobre__foto{margin:0;}}
+.sobre__glow{position:absolute;inset:-1rem;background:linear-gradient(to bottom right,#FC5696,#FFB5DE,#FECBEA);border-radius:1.5rem;opacity:.2;filter:blur(40px);}
+.sobre__img{position:relative;border-radius:1.5rem;overflow:hidden;aspect-ratio:9/16;background:linear-gradient(to bottom right,rgba(252,86,150,.1),rgba(255,181,222,.1));box-shadow:0 25px 50px -12px rgba(0,0,0,.25);}
+.sobre__img-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.3),transparent,transparent);}
+.sobre__float{position:absolute;bottom:-1.5rem;right:-1.5rem;background:#fff;border-radius:1rem;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);padding:1.25rem 1.5rem;border:1px solid rgba(255,181,222,.2);display:flex;align-items:center;gap:.75rem;max-width:16rem;}
+.sobre__float-ico{width:3rem;height:3rem;background:var(--grad-br);border-radius:9999px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sobre__texto{display:flex;flex-direction:column;gap:2rem;}
+.sobre__h2{font-family:var(--ft);font-size:clamp(2.25rem,4vw,3.75rem);font-weight:700;color:#111827;line-height:1.15;margin-bottom:1.5rem;}
+.sobre__prose p{font-size:1.05rem;color:#374151;line-height:1.65;margin-bottom:1.25rem;}
+.sobre__prose .rosa{color:#FC5696;}
+.sobre__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.sobre__card{background:linear-gradient(to bottom right,#fff,rgba(254,203,234,.05));border-radius:1rem;padding:1.5rem;border:1px solid rgba(255,181,222,.2);transition:all 300ms;}
+.sobre__card:hover{border-color:rgba(252,86,150,.4);box-shadow:0 10px 25px -5px rgba(0,0,0,.1);transform:translateY(-4px);}
+.sobre__card-ico{width:3rem;height:3rem;background:var(--grad-br);border-radius:.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;transition:transform 300ms;}
+.sobre__card:hover .sobre__card-ico{transform:scale(1.1);}
+.sobre__card h3{font-weight:700;color:#111827;font-size:.875rem;margin-bottom:.4rem;}
+.sobre__card p{color:#4B5563;font-size:.75rem;line-height:1.5;}
+
+/* SERVIÇOS */
+.servicos{background:linear-gradient(to bottom,#fff,#f9fafb,#fff);}
+.srv-grid{display:grid;gap:2rem;max-width:80rem;margin:0 auto;}
+@media(min-width:768px){.srv-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1024px){.srv-grid{grid-template-columns:repeat(3,1fr);}}
+.srv{position:relative;background:#fff;border-radius:1.5rem;padding:2rem;border:1px solid #F3F4F6;box-shadow:0 10px 25px -5px rgba(0,0,0,.07);transition:all 500ms;}
+.srv:hover{transform:translateY(-8px);box-shadow:0 25px 50px -12px rgba(0,0,0,.15);}
+.srv.dest{border:2px solid rgba(252,86,150,.3);box-shadow:0 25px 50px -12px rgba(0,0,0,.18);}
+@media(min-width:1024px){.srv.dest{grid-column:span 2;}}
+.srv__tag{position:absolute;top:-1rem;left:2rem;display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;background:var(--grad-r);color:#fff;border-radius:9999px;font-size:.75rem;font-weight:700;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);}
+.srv__ico{display:inline-flex;align-items:center;justify-content:center;width:4rem;height:4rem;border-radius:1rem;margin-bottom:1.5rem;transition:transform 300ms;}
+.srv:hover .srv__ico{transform:scale(1.1);}
+.srv__ico.p{background:var(--grad-br);}
+.srv__ico.s{background:linear-gradient(to bottom right,#FFB5DE,#FECBEA);}
+.srv h3{font-size:1.4rem;font-weight:700;margin-bottom:1rem;}
+.srv.dest h3{background:var(--grad-r);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.srv:not(.dest) h3{color:#111827;transition:color 300ms;}
+.srv:not(.dest):hover h3{color:#FC5696;}
+.srv ul{display:flex;flex-direction:column;gap:.75rem;}
+.srv li{display:flex;align-items:flex-start;gap:.75rem;color:#374151;font-size:.95rem;line-height:1.5;}
+.dot{display:inline-block;width:.375rem;height:.375rem;background:var(--grad-r);border-radius:9999px;margin-top:.55rem;flex-shrink:0;}
+.srv p.intima{color:#4B5563;font-style:italic;line-height:1.65;}
+.srv__hov{position:absolute;inset:0;border-radius:1.5rem;background:transparent;transition:all 500ms;pointer-events:none;}
+.srv:hover .srv__hov{background:linear-gradient(to bottom right,rgba(252,86,150,.05),rgba(255,181,222,.05));}
+.srv-cta{text-align:center;margin-top:4rem;}
+.srv-cta p{color:#4B5563;margin-bottom:1.5rem;}
+
+/* RESULTADOS */
+.resultados{background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);}
+.res-grid{display:grid;gap:2rem;max-width:72rem;margin:0 auto 3rem;}
+@media(min-width:640px){.res-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1024px){.res-grid{grid-template-columns:repeat(3,1fr);}}
+.res-card{position:relative;background:#fff;border-radius:1.5rem;overflow:hidden;border:1px solid #F3F4F6;box-shadow:0 20px 25px -5px rgba(0,0,0,.07);transition:all 500ms;}
+.res-card:hover{transform:translateY(-8px);box-shadow:0 25px 50px -12px rgba(0,0,0,.18);}
+.res-foto{position:relative;aspect-ratio:4/5;background:linear-gradient(to bottom right,rgba(254,203,234,.3),rgba(255,181,222,.2),rgba(252,86,150,.3));}
+.res-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;}
+.res-num{width:5rem;height:5rem;background:rgba(255,255,255,.8);backdrop-filter:blur(4px);border-radius:9999px;display:flex;align-items:center;justify-content:center;}
+.res-num span{font-family:var(--ft);font-size:1.875rem;font-weight:700;background:var(--grad-r);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.res-ph p{font-size:.875rem;color:#374151;font-weight:500;}
+.res-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.2),transparent);opacity:0;transition:opacity 300ms;}
+.res-card:hover .res-ov{opacity:1;}
+.res-info{padding:1.25rem 1.5rem;}
+.res-info h3{font-size:1rem;font-weight:700;color:#111827;margin-bottom:.5rem;transition:color 300ms;}
+.res-card:hover .res-info h3{color:#FC5696;}
+.res-info p{font-size:.875rem;color:#4B5563;}
+
+/* DEPOIMENTOS CARROSSEL */
+.depoimentos{background:linear-gradient(to bottom,#fff,#f9fafb,#fff);}
+.carrossel{position:relative;max-width:80rem;margin:0 auto;}
+.car-viewport{overflow:hidden;width:100%;}
+.car-track{display:flex;transition:transform 500ms cubic-bezier(.4,0,.2,1);will-change:transform;}
+.car-slide{flex:0 0 100%;padding:.5rem .5rem 2rem;box-sizing:border-box;display:flex;}
+@media(min-width:768px){.car-slide{flex:0 0 50%;}}
+.depo{position:relative;background:#fff;border-radius:1.5rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.07);border:1px solid #F3F4F6;transition:all 500ms;flex:1;}
+.depo:hover{transform:translateY(-8px);box-shadow:0 25px 50px -12px rgba(0,0,0,.15);}
+.depo-aspas{position:absolute;top:-1rem;left:-1rem;width:3rem;height:3rem;background:var(--grad-br);border-radius:9999px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);opacity:.9;}
+.depo-stars{color:#FC5696;font-size:1rem;margin-bottom:1rem;letter-spacing:.1em;}
+.depo-txt{font-size:.875rem;color:#374151;line-height:1.65;margin-bottom:1.5rem;}
+.depo-ft{border-top:1px solid #F3F4F6;padding-top:1rem;}
+.depo-nome{font-weight:700;color:#111827;margin-bottom:.25rem;font-size:.95rem;}
+.depo-trat{font-size:.75rem;color:#FC5696;font-weight:600;margin-bottom:.25rem;}
+.depo-src{font-size:.75rem;color:#6B7280;font-style:italic;}
+.depo-hov{position:absolute;inset:0;border-radius:1.5rem;background:transparent;transition:all 500ms;pointer-events:none;}
+.depo:hover .depo-hov{background:linear-gradient(to bottom right,rgba(252,86,150,.05),rgba(255,181,222,.05));}
+.car-setas{display:flex;justify-content:center;gap:1rem;margin-top:2rem;}
+.car-seta{width:3rem;height:3rem;border-radius:9999px;background:#fff;border:2px solid rgba(252,86,150,.3);color:#FC5696;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 300ms;box-shadow:0 4px 10px rgba(0,0,0,.08);}
+.car-seta:hover{background:var(--grad-r);border-color:transparent;color:#fff;transform:scale(1.1);box-shadow:0 8px 20px rgba(252,86,150,.35);}
+.car-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem;}
+.car-dot{width:.5rem;height:.5rem;border-radius:9999px;background:rgba(252,86,150,.25);border:none;cursor:pointer;transition:all 300ms;padding:0;}
+.car-dot.ativo{background:#FC5696;width:1.5rem;}
+
+/* FAQ */
+.faq{background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);}
+.faq-lista{max-width:56rem;margin:0 auto;display:flex;flex-direction:column;gap:1rem;}
+.faq-item{background:#fff;border-radius:1rem;border:1px solid #F3F4F6;box-shadow:0 10px 15px -3px rgba(0,0,0,.07);overflow:hidden;transition:border-color 300ms;}
+.faq-item:hover{border-color:rgba(255,181,222,.5);}
+.faq-item.aberto{border-color:rgba(252,86,150,.3);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;width:100%;padding:1.5rem;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;gap:1rem;}
+.faq-qi{display:flex;align-items:flex-start;gap:1rem;}
+.faq-icon{width:2.5rem;height:2.5rem;min-width:2.5rem;background:var(--grad-br);border-radius:9999px;display:flex;align-items:center;justify-content:center;transition:transform 300ms;}
+.faq-item:hover .faq-icon{transform:scale(1.1);}
+.faq-q span{font-size:1rem;font-weight:700;color:#111827;transition:color 300ms;line-height:1.4;}
+.faq-item:hover .faq-q span,.faq-item.aberto .faq-q span{color:#FC5696;}
+.faq-chv{flex-shrink:0;color:#6B7280;transition:transform 300ms;}
+.faq-item.aberto .faq-chv{transform:rotate(180deg);}
+.faq-r{max-height:0;overflow:hidden;transition:max-height 400ms ease,padding 300ms;}
+.faq-item.aberto .faq-r{max-height:400px;padding:0 1.5rem 1.5rem;}
+.faq-r p{font-size:.95rem;color:#4B5563;line-height:1.7;padding-left:3.5rem;}
+.faq-cta{text-align:center;margin-top:4rem;}
+.faq-cta p{color:#4B5563;margin-bottom:1.5rem;font-size:1.1rem;}
+
+/* LOCALIZAÇÃO */
+.localizacao{background:linear-gradient(to bottom,#fff,#f9fafb,#fff);}
+.loc-grid{display:grid;gap:1.5rem;max-width:80rem;margin:0 auto 4rem;}
+@media(min-width:640px){.loc-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1024px){.loc-grid{grid-template-columns:repeat(4,1fr);}}
+.loc-card{background:#fff;border-radius:1.5rem;padding:2rem;border:1px solid #F3F4F6;box-shadow:0 10px 15px -3px rgba(0,0,0,.07);transition:all 500ms;}
+.loc-card:hover{transform:translateY(-8px);box-shadow:0 25px 50px -12px rgba(0,0,0,.15);}
+.loc-ico{width:3.5rem;height:3.5rem;background:var(--grad-br);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;transition:transform 300ms;}
+.loc-card:hover .loc-ico{transform:scale(1.1);}
+.loc-card h3{font-size:.75rem;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem;}
+.loc-tit{font-size:1.05rem;font-weight:700;color:#111827;line-height:1.3;margin-bottom:.5rem;}
+.loc-sub{font-size:.875rem;color:#4B5563;line-height:1.5;}
+.mapa-wrap{max-width:64rem;margin:0 auto;}
+.mapa{background:linear-gradient(to bottom right,rgba(254,203,234,.3),rgba(255,181,222,.2),rgba(252,86,150,.3));border-radius:1.5rem;height:24rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;border:1px solid #F3F4F6;box-shadow:0 25px 50px -12px rgba(0,0,0,.15);}
+.mapa svg{width:4rem;height:4rem;color:#FC5696;margin:0 auto 1rem;}
+.mapa h3{font-family:var(--ft);font-size:1.5rem;font-weight:700;color:#111827;margin-bottom:.75rem;}
+.mapa p{color:#374151;margin-bottom:.5rem;}
+.mapa small{color:#4B5563;font-size:.875rem;}
+
+/* CTA FINAL */
+.cta-sec{position:relative;padding:8rem 0 0;overflow:hidden;}
+.cta-sec__bg{position:absolute;inset:0;background:linear-gradient(to bottom right,#FC5696,#FFB5DE,#FECBEA);}
+.cta-sec__blob1{position:absolute;top:5rem;left:2.5rem;width:20rem;height:20rem;background:rgba(255,255,255,.1);border-radius:9999px;filter:blur(64px);}
+.cta-sec__blob2{position:absolute;bottom:5rem;right:2.5rem;width:20rem;height:20rem;background:rgba(255,255,255,.1);border-radius:9999px;filter:blur(64px);animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite;animation-delay:1s;}
+.cta-sec__dots{position:absolute;inset:0;opacity:.1;background-image:radial-gradient(circle,rgba(255,255,255,1) 1px,transparent 1px);background-size:30px 30px;}
+@keyframes pulse{50%{opacity:.5;}}
+.cta-inner{position:relative;z-index:10;max-width:56rem;margin:0 auto;text-align:center;padding:0 1rem 6rem;}
+.cta-ico{display:inline-flex;align-items:center;justify-content:center;width:5rem;height:5rem;background:rgba(255,255,255,.2);backdrop-filter:blur(12px);border-radius:9999px;margin-bottom:2rem;animation:heroB 1.5s ease infinite;}
+.cta-sec h2{font-family:var(--ft);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:2rem;}
+.cta-desc{font-size:clamp(1.1rem,2vw,1.5rem);color:rgba(255,255,255,.95);font-weight:300;line-height:1.625;margin-bottom:3rem;}
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:.75rem;padding:1.25rem 3rem;background:#fff;color:#FC5696;font-weight:700;font-size:1.2rem;border-radius:9999px;border:none;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);transition:all 300ms;cursor:pointer;font-family:inherit;}
+.btn-cta:hover{transform:scale(1.1);box-shadow:0 30px 60px -12px rgba(0,0,0,.35);}
+.cta-nota{margin-top:2rem!important;font-size:.875rem!important;color:rgba(255,255,255,.8)!important;margin-bottom:0!important;}
+.cta-onda{display:block;width:100%;line-height:0;}
+
+/* FOOTER */
+.footer{background:linear-gradient(to bottom,#f9fafb,#fff);padding:4rem 0 2rem;position:relative;overflow:hidden;}
+.footer-grid{display:grid;gap:3rem;max-width:72rem;margin:0 auto 3rem;}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(3,1fr);}}
+.footer-marca h3{font-family:var(--ft);font-size:1.875rem;font-weight:700;background:var(--grad-r);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:1rem;}
+.footer-marca p{color:#4B5563;line-height:1.65;margin-bottom:1.5rem;}
+.footer-insta{display:inline-flex;align-items:center;gap:.5rem;color:#FC5696;font-weight:600;font-size:.95rem;transition:color 300ms;}
+.footer-insta:hover{color:#e94d87;}
+.footer-col h4{font-size:1.05rem;font-weight:700;color:#111827;margin-bottom:1.5rem;}
+.footer-col ul{display:flex;flex-direction:column;gap:.75rem;}
+.footer-col li{font-size:.9rem;color:#4B5563;cursor:pointer;transition:color 300ms;}
+.footer-col li:hover{color:#FC5696;}
+.footer-col address{font-style:normal;display:flex;flex-direction:column;gap:.75rem;}
+.footer-col address p{font-size:.875rem;color:#4B5563;line-height:1.55;}
+.footer-col address strong{color:#111827;display:block;margin-bottom:.15rem;}
+.footer-sep{border:none;height:1px;background:rgba(255,181,222,.3);max-width:72rem;margin:0 auto 2rem;}
+.footer-bot{max-width:72rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:.75rem;text-align:center;}
+@media(min-width:768px){.footer-bot{flex-direction:row;justify-content:space-between;}}
+.footer-bot p{font-size:.8rem;color:#6B7280;}
+.footer-heart{display:inline-flex;align-items:center;gap:.35rem;}
+.footer-heart svg{color:#FC5696;fill:#FC5696;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+<div class="container">
+<div class="header__inner">
+<div class="header__logo"><h1>Dra. Daianne Balestrieiro</h1></div>
+<nav class="header__nav">
+<button class="nav-link" onclick="ir('sobre')">Sobre</button>
+<button class="nav-link" onclick="ir('servicos')">Serviços</button>
+<button class="nav-link" onclick="ir('resultados')">Resultados</button>
+<button class="nav-link" onclick="ir('faq')">FAQ</button>
+<a href="https://www.instagram.com/daianne_balestrieiro_estetica/" target="_blank" rel="noopener noreferrer" class="btn-nav">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>Agendar</a>
+</nav>
+<a href="https://www.instagram.com/daianne_balestrieiro_estetica/" target="_blank" rel="noopener noreferrer" class="btn-mobile">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>Agendar</a>
+</div></div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+<div class="hero__bg"><img src="https://images.unsplash.com/photo-1710839465443-8671ced76e09?auto=format&fit=crop&w=1920&q=80" alt="Estética Avançada"/></div>
+<div class="hero__overlay"></div>
+<div class="hero__overlay2"></div>
+<div class="hero__dots"></div>
+<div class="hero__wrap">
+<div class="hero__content">
+<div class="hero__badge-wrap"><span class="hero__badge">Estética Avançada • Jaboticabal, SP</span></div>
+<h1 class="hero__titulo">Dra. Daianne Balestrieiro</h1>
+<p class="hero__frase">"Eu não vendo <span class="hl">Botox</span>. Eu vendo o <span class="hl">gerenciamento do seu envelhecimento</span> para que você se sinta <span class="hl">confiante</span> em todas as fases da sua vida."</p>
+<p class="hero__sub">Estética facial, corporal e íntima com técnica avançada e atendimento 100% personalizado em Jaboticabal, SP</p>
+<div class="hero__btns">
+<a href="https://www.instagram.com/daianne_balestrieiro_estetica/" target="_blank" rel="noopener noreferrer">
+<button class="btn-hp">
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+Agendar pelo Instagram</button></a>
+<button class="btn-hs" onclick="ir('servicos')">Ver Serviços</button>
+</div>
+<button class="hero__scroll" onclick="ir('sobre')">
+<span>Conheça mais</span>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+</button>
+</div></div>
+</section>
+
+<!-- SOBRE -->
+<section class="scroll-animate" id="sobre" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);">
+<div class="blob-bg">
+<div class="blob" style="top:5rem;right:25%;width:16rem;height:16rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.3;"></div>
+<div class="blob" style="bottom:5rem;left:25%;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.3;"></div>
+</div>
+<div class="container">
+<div class="sobre__grid">
+<div class="sobre__foto">
+<div class="sobre__glow"></div>
+<div class="sobre__img">
+<img src="https://images.pexels.com/photos/19963168/pexels-photo-19963168.jpeg" alt="Dra. Daianne Balestrieiro"/>
+<div class="sobre__img-ov"></div>
+</div>
+<div class="sobre__float">
+<div class="sobre__float-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></div>
+<div><p style="font-weight:700;color:#111827;font-size:.875rem;">Atendimento Exclusivo</p><p style="font-size:.75rem;color:#4B5563;">Por agendamento</p></div>
+</div>
+</div>
+<div class="sobre__texto">
+<div><span class="badge">Sobre Mim</span>
+<h2 class="sobre__h2">Excelência em<span style="display:block;background:linear-gradient(to right,#FC5696,#FFB5DE);-webkit-background-clip:text;background-clip:text;color:transparent;">Estética Avançada</span></h2></div>
+<div class="sobre__prose">
+<p>Dra. Daianne Balestrieiro é <strong class="rosa">pós-graduada em Estética Avançada (2023)</strong> e atua com tratamentos personalizados que vão do básico ao avançado.</p>
+<p>Especialista em <strong>harmonização facial, estética corporal e estética íntima feminina</strong>, ela acredita que cada cliente merece um olhar único — não um protocolo genérico.</p>
+<p>Com atendimento exclusivo por agendamento, cada consulta é pensada para os <strong class="rosa">seus objetivos e o seu momento de vida</strong>.</p>
+</div>
+<div class="sobre__cards">
+<div class="sobre__card"><div class="sobre__card-ico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg></div><h3>Pós-graduada</h3><p>Estética Avançada (2023)</p></div>
+<div class="sobre__card"><div class="sobre__card-ico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><h3>Personalizado</h3><p>Cada cliente merece um olhar único</p></div>
+<div class="sobre__card"><div class="sobre__card-ico"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></div><h3>Técnicas Avançadas</h3><p>Do básico ao mais moderno</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="scroll-animate" id="servicos" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
+<div class="blob-bg">
+<div class="blob" style="top:25%;left:2.5rem;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.4;"></div>
+<div class="blob" style="bottom:25%;right:2.5rem;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.4;"></div>
+</div>
+<div class="container">
+<div class="secao-topo"><span class="badge">Serviços</span><h2 class="h2">Tratamentos<span class="grad">Personalizados</span></h2><p class="secao-p">Do básico ao avançado, cada procedimento é pensado para realçar sua beleza natural e fortalecer sua autoestima</p></div>
+<div class="srv-grid">
+<div class="srv dest">
+<div class="srv__tag"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>CARRO-CHEFE</div>
+<div class="srv__ico p"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></div>
+<h3>Harmonização Facial</h3>
+<ul><li><span class="dot"></span><span>Preenchimento de lábios, mandíbula, mento (queixo)</span></li><li><span class="dot"></span><span>Preenchimento de bigode chinês, malar, olheiras</span></li><li><span class="dot"></span><span>Toxina botulínica (botox) facial e pescoço</span></li><li><span class="dot"></span><span>Toxina para hiperidrose em mãos e axilas</span></li><li><span class="dot"></span><span>Perfiloplastia</span></li></ul>
+<div class="srv__hov"></div></div>
+<div class="srv"><div class="srv__ico s"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div><h3>Bioestimulador de Colágeno</h3><ul><li><span class="dot"></span><span>Bioestimulação facial</span></li><li><span class="dot"></span><span>Corporal: abdômen, interno de coxas</span></li><li><span class="dot"></span><span>Glúteo e braços</span></li></ul><div class="srv__hov"></div></div>
+<div class="srv"><div class="srv__ico s"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div><h3>Estética Corporal</h3><ul><li><span class="dot"></span><span>Enzimas para gordura localizada</span></li><li><span class="dot"></span><span>Tratamento para flacidez</span></li><li><span class="dot"></span><span>Harmonização de quadríceps</span></li><li><span class="dot"></span><span>Drenagem pós-operatória</span></li><li><span class="dot"></span><span>Drenagem estética</span></li></ul><div class="srv__hov"></div></div>
+<div class="srv"><div class="srv__ico s"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><h3>Estética Facial Clínica</h3><ul><li><span class="dot"></span><span>Limpeza de pele com vapor de ozônio</span></li></ul><div class="srv__hov"></div></div>
+<div class="srv"><div class="srv__ico s"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3>Estética Íntima Feminina</h3><p class="intima">Procedimentos específicos apresentados durante a consulta. Agende e tire suas dúvidas com sigilo e cuidado.</p><div class="srv__hov"></div></div>
+</div>
+<div class="srv-cta"><p>Não sabe qual tratamento é ideal para você?</p>
+<a href="https://www.instagram.com/daianne_balestrieiro_estetica/" target="_blank" rel="noopener noreferrer"><button class="btn-rosa"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>Agende uma Avaliação Personalizada</button></a></div>
+</div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="scroll-animate" id="resultados" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);">
+<div class="blob-bg">
+<div class="blob" style="top:5rem;left:25%;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.3;"></div>
+<div class="blob" style="bottom:5rem;right:25%;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.3;"></div>
+</div>
+<div class="container">
+<div class="secao-topo"><span class="badge">Resultados</span><h2 class="h2">Transformações<span class="grad">Reais</span></h2><p class="secao-p">Cada resultado é único, porque cada pessoa é única</p></div>
+<div class="res-grid">
+<div class="res-card"><div class="res-foto"><div class="res-ph"><div class="res-num"><span>1</span></div><p>Foto será inserida</p></div><div class="res-ov"></div></div><div class="res-info"><h3>Preenchimento de olheiras</h3><p>Rejuvenescimento do olhar</p></div></div>
+<div class="res-card"><div class="res-foto"><div class="res-ph"><div class="res-num"><span>2</span></div><p>Foto será inserida</p></div><div class="res-ov"></div></div><div class="res-info"><h3>Mandíbula, mento e protocolo de papada</h3><p>Harmonização e contorno facial</p></div></div>
+<div class="res-card"><div class="res-foto"><div class="res-ph"><div class="res-num"><span>3</span></div><p>Foto será inserida</p></div><div class="res-ov"></div></div><div class="res-info"><h3>Perfiloplastia</h3><p>Perfil equilibrado e natural</p></div></div>
+<div class="res-card"><div class="res-foto"><div class="res-ph"><div class="res-num"><span>4</span></div><p>Foto será inserida</p></div><div class="res-ov"></div></div><div class="res-info"><h3>Preenchimento labial</h3><p>Volume e definição</p></div></div>
+<div class="res-card"><div class="res-foto"><div class="res-ph"><div class="res-num"><span>5</span></div><p>Foto será inserida</p></div><div class="res-ov"></div></div><div class="res-info"><h3>Rugas do nariz (toxina botulínica)</h3><p>Suavização de linhas de expressão</p></div></div>
+</div>
+<div style="max-width:42rem;margin:0 auto;text-align:center;">
+<hr style="border:none;height:1px;background:rgba(255,181,222,.3);margin-bottom:2rem;"/>
+<p style="font-size:.875rem;color:#6B7280;font-style:italic;display:flex;align-items:center;justify-content:center;gap:.5rem;">
+<span style="display:inline-block;width:.5rem;height:.5rem;background:#FC5696;border-radius:9999px;flex-shrink:0;"></span>
+Resultados reais de pacientes. Fotos com autorização.
+<span style="display:inline-block;width:.5rem;height:.5rem;background:#FC5696;border-radius:9999px;flex-shrink:0;"></span>
+</p>
+</div>
+</div>
+</section>
+
+<!-- DEPOIMENTOS CARROSSEL -->
+<section class="scroll-animate" id="depoimentos" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
+<div class="blob-bg">
+<div class="blob" style="top:33%;right:5rem;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.3),transparent);opacity:.3;"></div>
+<div class="blob" style="bottom:33%;left:5rem;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(254,203,234,.3),transparent);opacity:.3;"></div>
+</div>
+<div class="container">
+<div class="secao-topo"><span class="badge">Depoimentos</span><h2 class="h2">O Que Dizem<span class="grad">Nossas Clientes</span></h2><p class="secao-p">Histórias reais de transformação e autoestima renovada</p></div>
+<div class="carrossel">
+<div class="car-viewport"><div class="car-track" id="car-track">
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"A Dra. Daianne transformou minha autoestima! Sempre tive complexo com meu queixo e ela fez um trabalho impecável com preenchimento. O resultado ficou super natural, exatamente como eu queria. Atendimento maravilhoso, ela explica tudo nos mínimos detalhes e me deixou super segura."</p><div class="depo-ft"><p class="depo-nome">Juliana Santos</p><p class="depo-trat">Harmonização Facial</p><p class="depo-src">Google Reviews</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"Já fiz botox em outros lugares, mas com a Dra. Daianne foi completamente diferente. Ela realmente entende do que está fazendo e o resultado ficou perfeito — natural e sem aquele aspecto congelado. Super recomendo! Consultório lindo e ela é extremamente atenciosa."</p><div class="depo-ft"><p class="depo-nome">Mariana Costa</p><p class="depo-trat">Toxina Botulínica</p><p class="depo-src">Instagram</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"Comecei o tratamento com bioestimulador há 3 meses e já estou vendo os resultados! Minha pele está mais firme e com aquele viço que eu não via há anos. A Dra. Daianne é muito cuidadosa e sempre me passa confiança. Vale cada centavo investido!"</p><div class="depo-ft"><p class="depo-nome">Camila Rodrigues</p><p class="depo-trat">Bioestimulador de Colágeno</p><p class="depo-src">Google Reviews</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"Estava com muito medo de fazer preenchimento nos lábios e parecer artificial, mas a Dra. Daianne me acalmou e fez um trabalho incrível! Meus lábios ficaram lindos, com volume mas super naturais. Todo mundo pergunta se fiz alguma coisa. Amei!"</p><div class="depo-ft"><p class="depo-nome">Fernanda Lima</p><p class="depo-trat">Preenchimento Labial</p><p class="depo-src">Instagram</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"Fiz uma cirurgia plástica e a Dra. Daianne cuidou da minha drenagem pós-operatória. Ela foi essencial na minha recuperação! Muito profissional, pontual e sempre preocupada com o meu bem-estar. Percebi uma diferença enorme no inchaço. Gratidão!"</p><div class="depo-ft"><p class="depo-nome">Beatriz Almeida</p><p class="depo-trat">Drenagem Pós-Operatória</p><p class="depo-src">Google Reviews</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"Sempre achei meu rosto muito redondo e a Dra. Daianne fez uma harmonização de mandíbula que mudou completamente meu perfil. Ficou lindo e ninguém percebe que fiz nada — apenas dizem que estou mais bonita! Recomendo de olhos fechados!"</p><div class="depo-ft"><p class="depo-nome">Amanda Silva</p><p class="depo-trat">Harmonização de Mandíbula</p><p class="depo-src">Instagram</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"A limpeza de pele com vapor de ozônio é maravilhosa! Minha pele fica renovada, lisinha e radiante. A Dra. Daianne é super delicada e o ambiente do consultório é muito aconchegante. Virou meu ritual mensal de autocuidado!"</p><div class="depo-ft"><p class="depo-nome">Carolina Martins</p><p class="depo-trat">Limpeza de Pele</p><p class="depo-src">Google Reviews</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"Sofria muito com suor excessivo nas axilas. A toxina botulínica que a Dra. Daianne aplicou mudou minha vida! Faz 5 meses e continuo sequinha. Foi libertador poder usar qualquer roupa sem me preocupar. Gratidão eterna!"</p><div class="depo-ft"><p class="depo-nome">Patrícia Oliveira</p><p class="depo-trat">Tratamento para Hiperidrose</p><p class="depo-src">Instagram</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"Minhas olheiras sempre me incomodaram e me faziam parecer cansada. O preenchimento que a Dra. Daianne fez foi transformador! Meu olhar ficou mais descansado e rejuvenescido. Ela é muito técnica e cuidadosa. Melhor investimento que já fiz!"</p><div class="depo-ft"><p class="depo-nome">Renata Ferreira</p><p class="depo-trat">Preenchimento de Olheiras</p><p class="depo-src">Google Reviews</p></div><div class="depo-hov"></div></div></div>
+<div class="car-slide"><div class="depo"><div class="depo-aspas"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></div><div class="depo-stars">★★★★★</div><p class="depo-txt">"Sempre quis melhorar meu perfil e a Dra. Daianne fez uma perfiloplastia incrível! O resultado ficou muito harmonioso e natural. Ela entendeu perfeitamente o que eu queria e superou minhas expectativas. Profissional extremamente competente e humana. Super indico!"</p><div class="depo-ft"><p class="depo-nome">Vanessa Souza</p><p class="depo-trat">Perfiloplastia</p><p class="depo-src">Instagram</p></div><div class="depo-hov"></div></div></div>
+</div></div>
+<div class="car-setas">
+<button class="car-seta" id="car-prev" aria-label="Anterior"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+<button class="car-seta" id="car-next" aria-label="Próximo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+</div>
+<div class="car-dots" id="car-dots"></div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="scroll-animate" id="faq" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,rgba(254,203,234,.05),#fff);">
+<div class="blob-bg">
+<div class="blob" style="top:5rem;left:33%;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.3;"></div>
+<div class="blob" style="bottom:5rem;right:33%;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.3;"></div>
+</div>
+<div class="container">
+<div class="secao-topo"><span class="badge">FAQ</span><h2 class="h2">Perguntas<span class="grad">Frequentes</span></h2><p class="secao-p">Tire suas dúvidas sobre os procedimentos e atendimento</p></div>
+<div class="faq-lista">
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Os procedimentos doem?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>A maioria dos procedimentos é bem tolerada com o uso de anestesias tópicas e técnicas minimamente invasivas. O desconforto varia conforme o procedimento e a sensibilidade de cada pessoa, mas a Dra. Daianne prioriza o seu conforto em todas as etapas.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Quanto tempo dura o resultado do botox?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>O efeito dura entre 4 e 6 meses, variando conforme o metabolismo, a área tratada e os cuidados pós-procedimento. Com aplicações regulares, os resultados tendem a durar mais ao longo do tempo.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Preciso de retorno após os procedimentos?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>Sim! O retorno faz parte do protocolo de cuidado. Ele garante que o resultado está como o esperado, permite ajustes pontuais quando necessário e é o momento ideal para tirar dúvidas sobre a evolução do tratamento.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Qual a diferença entre preenchimento e bioestimulador de colágeno?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>O preenchimento usa ácido hialurônico para adicionar volume imediatamente em áreas específicas. O bioestimulador atua de forma progressiva, estimulando a própria pele a produzir colágeno ao longo de semanas, melhorando firmeza e qualidade da pele.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>A partir de que idade posso fazer harmonização facial?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>Procedimentos invasivos são indicados a partir dos 18 anos. A avaliação é sempre individualizada, considerando maturidade facial, necessidades e objetivos de cada paciente.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Quanto tempo leva cada sessão?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>Uma aplicação de botox pode durar 30 a 60 minutos, já uma harmonização mais completa pode tomar 1 a 2 horas. O atendimento exclusivo garante atenção a cada detalhe, sem pressa.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Os procedimentos têm contraindicações?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>Sim, existem contraindicações como gravidez, amamentação e uso de determinados medicamentos. A consulta prévia é fundamental para avaliar seu caso com segurança antes de qualquer aplicação.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Como funciona o agendamento?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>O agendamento é feito exclusivamente pelo Instagram. Envie uma mensagem direta para @daianne_balestrieiro_estetica, verifique disponibilidade e confirme sua consulta. Atendimento sempre com hora marcada.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>O que é hiperidrose e como é feito o tratamento?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>Hiperidrose é o suor excessivo em axilas, mãos e pés. A toxina botulínica bloqueia temporariamente os sinais nervosos que estimulam as glândulas sudoríparas, reduzindo drasticamente a transpiração com resultado que dura em média 6 meses.</p></div></div>
+<div class="faq-item" onclick="faqToggle(this)"><button class="faq-q"><div class="faq-qi"><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><span>Posso fazer mais de um procedimento no mesmo dia?</span></div><svg class="faq-chv" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-r"><p>Em alguns casos sim. A combinação é avaliada durante a consulta, sempre priorizando segurança, tempo de recuperação e os melhores resultados possíveis para cada pessoa.</p></div></div>
+</div>
+<div class="faq-cta"><p>Ainda tem dúvidas? Vamos conversar!</p>
+<a href="https://www.instagram.com/daianne_balestriiero_estetica/" target="_blank" rel="noopener noreferrer"><button class="btn-rosa">Enviar Mensagem pelo Instagram</button></a></div>
+</div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section class="scroll-animate" id="localizacao" style="position:relative;padding:6rem 0;overflow:hidden;background:linear-gradient(to bottom,#fff,#f9fafb,#fff);">
+<div class="blob-bg">
+<div class="blob" style="top:25%;right:2.5rem;width:24rem;height:24rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.3;"></div>
+<div class="blob" style="bottom:25%;left:2.5rem;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.3;"></div>
+</div>
+<div class="container">
+<div class="secao-topo"><span class="badge">Localização</span><h2 class="h2">Venha Nos<span class="grad">Visitar</span></h2><p class="secao-p">Estamos localizados em Jaboticabal, SP, com atendimento exclusivo por agendamento</p></div>
+<div class="loc-grid">
+<div class="loc-card"><div class="loc-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Endereço</h3><p class="loc-tit">R. Dra. Leonor Sanches Louzada e Santos</p><p class="loc-sub">Conj. Hab. Hugo Lacorte Vitalle I, Jaboticabal - SP, CEP 14875-408</p></div>
+<div class="loc-card"><div class="loc-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Horários</h3><p class="loc-tit">Segunda a Sexta</p><p class="loc-sub">Das 9h às 17h</p></div>
+<div class="loc-card"><div class="loc-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></div><h3>Agendamento</h3><p class="loc-tit">Somente com hora marcada</p><p class="loc-sub">Atendimento exclusivo por agendamento prévio</p></div>
+<div class="loc-card"><div class="loc-ico"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3>Contato</h3><p class="loc-tit">@daianne_balestrieiro_estetica</p><p class="loc-sub">Agende pelo Instagram Direct</p></div>
+</div>
+<div class="mapa-wrap"><div class="mapa">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+<h3>R. Dra. Leonor Sanches Louzada e Santos</h3>
+<p>Conj. Hab. Hugo Lacorte Vitalle I, Jaboticabal - SP</p>
+<small>CEP 14875-408</small>
+</div></div>
+</div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-sec" id="cta">
+<div class="cta-sec__bg"></div>
+<div class="cta-sec__blob1"></div>
+<div class="cta-sec__blob2"></div>
+<div class="cta-sec__dots"></div>
+<div class="cta-inner">
+<div class="cta-ico"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></div>
+<h2>Pronta para cuidar de você?</h2>
+<p class="cta-desc">Agende sua consulta e dê o primeiro passo para se sentir confiante em todas as fases da sua vida.</p>
+<a href="https://www.instagram.com/daianne_balestriiero_estetica/" target="_blank" rel="noopener noreferrer">
+<button class="btn-cta"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>Agendar pelo Instagram</button>
+</a>
+<p class="cta-nota">Atendimento exclusivo por agendamento • Segunda a Sexta, 9h às 17h</p>
+</div>
+<svg class="cta-onda" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<path fill="#f9fafb" d="M0,40L80,45C160,50,320,60,480,55C640,50,800,38,960,33C1120,28,1280,38,1360,43L1440,48L1440,80L0,80Z"/>
+</svg>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" style="position:relative;overflow:hidden;">
+<div class="blob-bg">
+<div class="blob" style="top:2.5rem;right:25%;width:16rem;height:16rem;background:linear-gradient(to bottom right,rgba(252,86,150,.2),transparent);opacity:.2;"></div>
+<div class="blob" style="bottom:2.5rem;left:25%;width:20rem;height:20rem;background:linear-gradient(to bottom right,rgba(255,181,222,.2),transparent);opacity:.2;"></div>
+</div>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-marca">
+<h3>Daianne Balestrieiro<br/>Estética &amp; Saúde</h3>
+<p>Estética avançada com técnica, cuidado e um olhar único para cada cliente. Realçando sua beleza natural em Jaboticabal, SP.</p>
+<a href="https://www.instagram.com/daianne_balestriiero_estetica/" target="_blank" rel="noopener noreferrer" class="footer-insta">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+@daianne_balestriiero_estetica
+</a>
+</div>
+<div class="footer-col">
+<h4>Links Rápidos</h4>
+<ul>
+<li onclick="ir('sobre')">Sobre Mim</li>
+<li onclick="ir('servicos')">Serviços</li>
+<li onclick="ir('resultados')">Antes &amp; Depois</li>
+<li onclick="ir('faq')">Perguntas Frequentes</li>
+<li onclick="ir('localizacao')">Contato</li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Contato</h4>
+<address>
+<p><strong>Endereço</strong>Jaboticabal, SP — CEP 14875-408</p>
+<p><strong>Horários</strong>Segunda a Sexta<br/>Das 9h às 17h</p>
+<p class="footer-note" style="font-size:.875rem;font-style:italic;color:#FC5696;font-weight:500;">Atendimento exclusivo por agendamento</p>
+</address>
+</div>
+</div>
+<hr class="footer-sep"/>
+<div class="footer-bot">
+<p>© 2026 Daianne Balestrieiro Estética &amp; Saúde. Todos os direitos reservados.</p>
+<p class="footer-heart">Feito com <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> para você</p>
+</div>
+</div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+// Header scroll
+window.addEventListener('scroll', function() {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Scroll suave
+function ir(id) {
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+}
+
+// IntersectionObserver para scroll-animate (fiel ao original)
+(function() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('animate-fade-in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.scroll-animate').forEach(function(el) { obs.observe(el); });
+})();
+
+// Carrossel
+(function() {
+  var track = document.getElementById('car-track');
+  var dotsWrap = document.getElementById('car-dots');
+  var TOTAL = 10;
+  var cur = 0;
+  var autoTimer;
+
+  function pv() { return window.innerWidth >= 768 ? 2 : 1; }
+  function numPages() { return Math.ceil(TOTAL / pv()); }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i < numPages(); i++) {
+      var d = document.createElement('button');
+      d.className = 'car-dot' + (i === 0 ? ' ativo' : '');
+      d.setAttribute('aria-label', 'Página ' + (i + 1));
+      (function(idx) { d.onclick = function() { stopAuto(); goTo(idx); startAuto(); }; })(i);
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function goTo(page) {
+    var pages = numPages();
+    if (page < 0) page = pages - 1;
+    if (page >= pages) page = 0;
+    cur = page;
+    var vw = track.parentElement.offsetWidth;
+    track.style.transform = 'translateX(-' + (cur * vw) + 'px)';
+    dotsWrap.querySelectorAll('.car-dot').forEach(function(d, i) {
+      d.classList.toggle('ativo', i === cur);
+    });
+  }
+
+  function startAuto() { autoTimer = setInterval(function() { goTo(cur + 1); }, 5000); }
+  function stopAuto() { clearInterval(autoTimer); }
+
+  document.getElementById('car-prev').onclick = function() { stopAuto(); goTo(cur - 1); startAuto(); };
+  document.getElementById('car-next').onclick = function() { stopAuto(); goTo(cur + 1); startAuto(); };
+
+  window.addEventListener('resize', function() { buildDots(); goTo(0); });
+
+  // Swipe touch
+  var startX = 0;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(diff > 0 ? cur + 1 : cur - 1);
+    startAuto();
+  });
+
+  buildDots();
+  startAuto();
+})();
+
+// FAQ accordion
+function faqToggle(el) {
+  var isOpen = el.classList.contains('aberto');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('aberto'); });
+  if (!isOpen) el.classList.add('aberto');
+}
+</script>
+</body>
+</html>
